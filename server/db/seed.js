@@ -17,7 +17,6 @@ const myself = await User.create(
   
   await Post.insertMany([
   {
-    
     text: 'Hello World',
     date: '11/26/2001',
     author: myself._id
@@ -28,12 +27,13 @@ const myself = await User.create(
       date: '11/26/2101',
       author: myself._id
     },
-
-
     
 
   ]
-  )
+  ).then((posts) => {
+    myself.posts = posts.map(post => post._id)
+    myself.save()
+  })
 
 
 const newUser = await User.create(
@@ -43,19 +43,32 @@ const newUser = await User.create(
     handle: 'bathsalt10'
   },
 )
+
+await Post.insertMany([
+  {
+    posts: [],
+    text: 'Hello World',
+    date: '11/26/2001',
+  },
+  {
+    posts: [],
+    text: 'Goodbye World',
+    date: '11/26/2101',
+  },
+
+]
+).then((posts) => {
+  newUser.posts = posts.map(post => post._id)
+  newUser.save()
+}).then(() => {
+  console.log('Done seeding database')
+})
+    
   
 
-await Post.create(
-  {
-    text: 'i love taking hot showers',
-    date: '10/06/2045',
-    author: newUser._id
-  },  
-)
 
 
 
-console.log('Done seeding database')
-await mongoose.connection.close()
+
   
 
