@@ -5,6 +5,7 @@ import "./db/connection.js"
 import Express from "express";
 import morgan from "morgan";
 import postRouter from "./routes/posts.js";
+import userRouter from "./routes/users.js"
 
 const PORT = process.env.PORT || 8080
 
@@ -20,6 +21,8 @@ app.use(morgan("dev"));
 app.use(Express.json());
 
 app.use('/api/post', postRouter);
+
+app.use('/api/user', userRouter);
 
 
 
