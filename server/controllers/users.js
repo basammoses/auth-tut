@@ -4,7 +4,7 @@ import Post from '../models/posts.js'
 
 export async function getUsers(req, res) {
   try {
-    const users = await User.find({});
+    const users = await User.find().populate('posts');
     
     res.status(200).json(users);
 
@@ -17,7 +17,7 @@ export async function getUsers(req, res) {
 export async function getUserByHandle(req, res) {
   const { handle } = req.params;
   try {
-    const user = await User.findOne({ handle });
+    const user = await User.findOne({ handle }).populate('posts');
    
 
     res.status(200).json(user);

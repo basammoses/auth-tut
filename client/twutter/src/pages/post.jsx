@@ -2,12 +2,15 @@ import React from "react";
 
 
 
-export default function Profile() {
+export default function Post({ id, text, author, date, handle }) {
+  
   return (
-    <div className="profile">
-      <h1>Profile</h1>
-      <p>Profile page</p>
-    </div>
-  );
-}
+    <div key={id}>
+      
+      {text} {author} {`@${handle}`}</div>
 
+  );
+
+  
+
+}

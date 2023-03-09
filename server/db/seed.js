@@ -9,6 +9,7 @@ await Post.deleteMany({})
 
 const myself = await User.create(
   {
+    posts: [],
     username: 'Basam',
     handle: 'basammoses'
   },
@@ -37,6 +38,7 @@ const myself = await User.create(
 
 const newUser = await User.create(
   {
+    posts: [],
     username: 'bathsalt',
     handle: 'bathsalt10'
   },
@@ -50,6 +52,8 @@ await Post.create(
     author: newUser._id
   },  
 )
+
+
 
 console.log('Done seeding database')
 await mongoose.connection.close()

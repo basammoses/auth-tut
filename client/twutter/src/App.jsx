@@ -10,7 +10,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/profile" element={<Profile />} />
+      <Route path="/profile/:handle" element={<Profile />} />
       <Route path="/post" element={<Post />} />
       
     </Routes>

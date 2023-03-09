@@ -4,7 +4,7 @@ import User from "../models/users.js";
 
 export async function getPosts(req, res) {
   try {
-    const posts = await Post.find();
+    const posts = await Post.find().populate("author");
     res.status(200).json(posts);
   }
   catch (err) {
