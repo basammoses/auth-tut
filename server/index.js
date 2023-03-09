@@ -1,7 +1,7 @@
 
 import "dotenv/config"
 //this is to load the environment variables from the .env file;
-
+import "./db/connection.js"
 import Express from "express";
 import morgan from "morgan";
 import postRouter from "./routes/posts.js";
