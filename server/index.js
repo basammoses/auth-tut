@@ -19,7 +19,7 @@ app.use(morgan("dev"));
 //this is a middleware that parses the request body to json
 app.use(Express.json());
 
-app.use('/', postRouter);
+app.use('/api/post', postRouter);
 
 
 

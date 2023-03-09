@@ -19,13 +19,13 @@ const myself = await User.create(
     
     text: 'Hello World',
     date: '11/26/2001',
-    author: myself.handle
+    author: myself._id
 
     },
     {
       text: 'Goodbye World',
       date: '11/26/2101',
-      author: myself.handle
+      author: myself._id
     },
 
 
@@ -47,7 +47,7 @@ await Post.create(
   {
     text: 'i love taking hot showers',
     date: '10/06/2045',
-    author: newUser.handle
+    author: newUser._id
   },  
 )
 

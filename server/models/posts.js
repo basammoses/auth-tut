@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 const postSchema = new mongoose.Schema({
   author: {
     ref: "User",
-    type: mongoose.Schema.Types.String
+    type: mongoose.Schema.Types.ObjectId
   },
   text: String,
   date: Date,
