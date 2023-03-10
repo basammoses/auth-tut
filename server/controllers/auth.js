@@ -27,9 +27,11 @@ export async function loginUser(req, res) {
         return res.status(400).send('Incorrect email or password');
       }
       const token = jwt.sign({ user }, 'secret', {
-        expiresIn: '1h',
+        expiresIn: '1d',
       });
-      res.status(200).json({ user, token });
+      const handle = user.handle
+      const id = user._id
+      res.status(200).json({ token, handle, id} );
     }
     
 
@@ -63,3 +65,21 @@ export async function createUser(req, res) {
     res.status(500).send('Error signing up user. Please try again later.');
   }
 }
+
+export async function logOut(req, res) {
+  try {
+    const { token } = req.body;
+    if (!token) {
+      return res.status(400).send('Missing required fields');
+    }
+    else {
+      res.status(200).json({ token: null });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error logging out user. Please try again later.');
+  }
+}
+
+
+ 
