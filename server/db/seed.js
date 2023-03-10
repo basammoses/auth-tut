@@ -11,7 +11,10 @@ const myself = await User.create(
   {
     posts: [],
     username: 'Basam',
-    handle: 'basammoses'
+    handle: 'basammoses',
+    email: 'basammoses@gmail.com',
+    password: 'password'
+    
   },
   )
   
@@ -40,7 +43,10 @@ const newUser = await User.create(
   {
     posts: [],
     username: 'bathsalt',
-    handle: 'bathsalt10'
+    handle: 'bathsalt10',
+    email: 'bathsalt@gmail.com',
+    password: 'password'
+
   },
 )
 

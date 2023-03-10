@@ -7,6 +7,7 @@ import morgan from "morgan";
 import postRouter from "./routes/posts.js";
 import userRouter from "./routes/users.js"
 import cors from "cors";
+import authRouter from "./routes/auth.js";
 
 const PORT = process.env.PORT || 8080
 
@@ -24,6 +25,7 @@ app.use(Express.json());
 app.use('/api/post', postRouter);
 
 app.use('/api/user', userRouter);
+app.use('/api/auth', authRouter);
 
 
 
