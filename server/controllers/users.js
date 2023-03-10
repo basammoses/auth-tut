@@ -43,19 +43,19 @@ export async function getUserPostsByHandle(req, res) {
   }
 }
 
-export async function addUserPostsToProfile(req, res) {
-  const { handle } = req.params;
-  try {
-    const user = await User.findOne({ handle })
-    const posts = await Post.find({ author: user._id })
-    user.posts = posts.map(post => `${post._id}`)
-    await user.save()
-    res.status(200).json(user);
-  }
-  catch (err) {
-    res.status(404).json({ message: err.message });
-  }
-}
+// export async function addUserPostsToProfile(req, res) {
+//   const { handle } = req.params;
+//   try {
+//     const user = await User.findOne({ handle })
+//     const posts = await Post.find({ author: user._id })
+//     user.posts = posts.map(post => `${post._id}`)
+//     await user.save()
+//     res.status(200).json(user);
+//   }
+//   catch (err) {
+//     res.status(404).json({ message: err.message });
+//   }
+// }
 
 
 

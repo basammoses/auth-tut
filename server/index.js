@@ -6,12 +6,13 @@ import Express from "express";
 import morgan from "morgan";
 import postRouter from "./routes/posts.js";
 import userRouter from "./routes/users.js"
+import cors from "cors";
 
 const PORT = process.env.PORT || 8080
 
 
-
 const app = Express();
+app.use(cors());
 
 //morgan is a middleware that logs the request to the console
 app.use(morgan("dev"));

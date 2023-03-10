@@ -22,7 +22,9 @@ export default function Profile() {
 
   return (
     <div className="profile">
-      <h1>Profile</h1>
+      <h1>
+        <a href="http://localhost:3001/">Home</a>
+        </h1>
       <h2>{profile.username}</h2>
       <h3>{profile.handle}</h3>
       <hr />

@@ -46,12 +46,12 @@ const newUser = await User.create(
 
 await Post.insertMany([
   {
-    posts: [],
+    author: newUser._id,
     text: 'Hello World',
     date: '11/26/2001',
   },
   {
-    posts: [],
+    author:newUser._id,
     text: 'Goodbye World',
     date: '11/26/2101',
   },

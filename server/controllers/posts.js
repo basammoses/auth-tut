@@ -26,9 +26,18 @@ export async function getPostbyId(req, res) {
 
 
 export async function createPost(req, res) {
-  const post = req.body;
-  const newPost = new Post(post);
+  console.log(req.body)
+  const user = await User.findOne({ handle: req.body.username })
+  const newPost = new Post({
+    // @ts-ignore
+    author: user._id,
+    date: new Date(),
+    text: req.body.twut,
+
+  });
   try {
+    user.posts.push(newPost._id)
+    await user.save()
     await newPost.save();
     res.status(201).json(newPost);
   }
