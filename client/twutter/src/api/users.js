@@ -12,7 +12,16 @@ export const signin = payload => api.post(`/auth/login`, payload).then(res => re
   })
 
 export const verifyToken = token => api.post(`/auth/verify`, token).then(res => res.data)
-export const logout = () => api.post(`/auth/logout`).then(res => res.data)
+export const logout = () => api.post(`/auth/logout`).then(res => res.data).then
+  (data => {
+    localStorage.clear();
+    return data;
+  })
+
+
+
+
+
 
   
 
